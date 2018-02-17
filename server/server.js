@@ -18,12 +18,13 @@ app.post('/todos',(req,res)=>{
         res.status(400).send({err});
     });
 });
-app.listen(3000,()=>{
-    console.log('server listening on port 3000');
-});
+if(!module.parent){
+    app.listen(3000,()=>{
+        console.log('server listening on port 3000');
+    });
+}
 
-
-
+module.exports={app};
 // let newUser = new User({
 //     name:'Rafael Anguiano',
 //     email:'rafita@gmail.com'
